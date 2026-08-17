@@ -16,6 +16,12 @@ class SaleOrderLine(models.Model):
     _name = "sale.order.line"
     _inherit = ["sale.order.line", "product.cost.security.mixin"]
 
-    margin = fields.Float(groups="product_cost_security.group_product_cost")
-    margin_percent = fields.Float(groups="product_cost_security.group_product_cost")
-    purchase_price = fields.Float(groups="product_cost_security.group_product_cost")
+    margin = fields.Float(
+        groups="product_cost_security.group_product_cost", precompute=False
+    )
+    margin_percent = fields.Float(
+        groups="product_cost_security.group_product_cost", precompute=False
+    )
+    purchase_price = fields.Float(
+        groups="product_cost_security.group_product_cost", precompute=False
+    )
